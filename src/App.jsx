@@ -10,7 +10,7 @@ function App() {
     <>
 
       <Header></Header>
-      <div className='md:flex w-11/12 mx-auto my-4 justify-center items-center'>
+      <div className='md:flex gap-4  w-11/12 mx-auto my-4 justify-center'>
       <Blogs></Blogs>
       <Bookmarks></Bookmarks>
       </div>

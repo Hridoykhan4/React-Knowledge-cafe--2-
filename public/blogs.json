@@ -2,51 +2,51 @@
   {
     "id": "1",
     "cover": "https://i.postimg.cc/BnpRhp4f/1.jpg",
-    "title": "Discovering Hidden Waterfalls",
+    "title": "Building Dynamic UIs with React Components",
     "author": "Alice Johnson",
     "author_img": "https://i.postimg.cc/YLqRHgcf/girl1.jpg",
     "posted_date": "2024-12-26",
     "reading_time": 8,
-    "hashtags": ["#nature", "#exploration", "#waterfalls"]
+    "hashtags": ["#react", "#UI", "#components"]
   },
   {
     "id": "2",
     "cover": "https://i.postimg.cc/zVv72nFq/2.png",
-    "title": "A Journey Through Ancient Ruins",
+    "title": "State Management in React: A Practical Guide",
     "author": "Brian Clark",
     "author_img": "https://i.postimg.cc/phvks4qS/boy1.png",
     "posted_date": "2024-12-25",
     "reading_time": 6,
-    "hashtags": ["#history", "#adventure", "#ruins"]
+    "hashtags": ["#react", "#state", "#guide"]
   },
   {
     "id": "3",
     "cover": "https://i.postimg.cc/hXH2dfxc/3.png",
-    "title": "Urban Gardening: Tips and Tricks",
+    "title": "Optimizing Performance in React Applications",
     "author": "Cynthia Baker",
     "author_img": "https://i.postimg.cc/McVdbqbR/boy2.jpg",
     "posted_date": "2024-12-24",
     "reading_time": 5,
-    "hashtags": ["#gardening", "#urban", "#plants"]
+    "hashtags": ["#react", "#performance", "#optimization"]
   },
   {
     "id": "4",
     "cover": "https://i.postimg.cc/hz0s6sYt/4.jpg",
-    "title": "Innovations in Renewable Energy",
+    "title": "Exploring React Hooks for Modern Development",
     "author": "David Green",
     "author_img": "https://i.postimg.cc/232TxHvH/girl2.jpg",
     "posted_date": "2024-12-23",
     "reading_time": 7,
-    "hashtags": ["#technology", "#renewable", "#innovation"]
+    "hashtags": ["#react", "#hooks", "#development"]
   },
   {
     "id": "5",
     "cover": "https://i.postimg.cc/mrqXq6nJ/person-using-laptop-cafe.jpg",
-    "title": "Mindful Meditation Practices",
+    "title": "Best Practices for Structuring React Projects",
     "author": "Elaine Roberts",
     "author_img": "https://i.postimg.cc/phvks4qS/boy1.png",
     "posted_date": "2024-12-22",
     "reading_time": 4,
-    "hashtags": ["#wellness", "#mindfulness", "#meditation"]
+    "hashtags": ["#react", "#bestpractices", "#projects"]
   }
 ]
