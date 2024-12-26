@@ -12,8 +12,8 @@ const Blogs = () => {
     }, [])
 
     return (
-        <div>
-                <h2>Data: {blogs.length}</h2>
+        <div className="md:w-2/3">
+                <h2 className="text-4xl">Data: {blogs.length}</h2>
         </div>
     );
 };
