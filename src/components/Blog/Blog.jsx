@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { FaBookmark } from "react-icons/fa";
 
-const Blog = ({ blog, handleAddToBookMark }) => {
+const Blog = ({ blog, handleAddToBookMark, handleMarkAsRead }) => {
   const {
     title,
     cover,
@@ -10,6 +10,7 @@ const Blog = ({ blog, handleAddToBookMark }) => {
     author_img,
     author,
     posted_date,
+    id,
   } = blog;
   return (
     <div className="space-y-3">
@@ -20,7 +21,6 @@ const Blog = ({ blog, handleAddToBookMark }) => {
           alt={`Cover Picture of the title ${title}`}
         />
       </div>
-
       <div className="flex justify-between">
         <div className="flex gap-4">
           <img src={author_img} alt="" className="w-14" />
@@ -34,11 +34,10 @@ const Blog = ({ blog, handleAddToBookMark }) => {
             {reading_time} min read
           </button>
           <button className="text-2xl bg-gray-400 rounded-full p-2 text-red-500">
-            <FaBookmark onClick={() => handleAddToBookMark(blog)}/>
+            <FaBookmark onClick={() => handleAddToBookMark(blog)} />
           </button>
         </div>
       </div>
-
       <h2 className="md:text-4xl text-2xl font-semibold tracking-wide">
         {title}
       </h2>
@@ -47,12 +46,20 @@ const Blog = ({ blog, handleAddToBookMark }) => {
         <p className="text-gray-800 text-xl">{hashtags[1]}</p>
         <p className="text-gray-800 text-xl">{hashtags[2]}</p>
       </div>
+      <button
+        className="underline underline-offset-2 text-sky-700 font-semibold"
+        onClick={() => handleMarkAsRead(reading_time, id)}
+      >
+        Mark As Read{" "}
+      </button>{" "}
+      <span className="text-red-800">❤</span>
     </div>
   );
 };
 
 Blog.propTypes = {
   blog: PropTypes.object.isRequired,
-  handleAddToBookMark: PropTypes.func.isRequired
+  handleAddToBookMark: PropTypes.func.isRequired,
+  handleMarkAsRead: PropTypes.func.isRequired,
 };
 export default Blog;
