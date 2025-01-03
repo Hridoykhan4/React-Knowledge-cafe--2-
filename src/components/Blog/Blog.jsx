@@ -33,8 +33,11 @@ const Blog = ({ blog, handleAddToBookMark, handleMarkAsRead }) => {
           <button className="text-gray-800 font-semibold bg-blue-300 p-2 rounded">
             {reading_time} min read
           </button>
-          <button className="text-2xl bg-gray-400 rounded-full p-2 text-red-500">
-            <FaBookmark onClick={() => handleAddToBookMark(blog)} />
+          <button
+            onClick={() => handleAddToBookMark(blog)}
+            className="text-2xl bg-gray-400 rounded-full btn p-2 text-red-500"
+          >
+            <FaBookmark />
           </button>
         </div>
       </div>
@@ -47,12 +50,11 @@ const Blog = ({ blog, handleAddToBookMark, handleMarkAsRead }) => {
         <p className="text-gray-800 text-xl">{hashtags[2]}</p>
       </div>
       <button
-        className="underline underline-offset-2 text-sky-700 font-semibold"
+        className="underline underline-offset-2  text-white btn btn-info font-semibold"
         onClick={() => handleMarkAsRead(reading_time, id)}
       >
-        Mark As Read{" "}
+        Mark As Read <span className="text-red-800">❤</span>
       </button>{" "}
-      <span className="text-red-800">❤</span>
     </div>
   );
 };

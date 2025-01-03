@@ -3,13 +3,16 @@ import "./App.css";
 import Blogs from "./components/Blogs/Blogs";
 import Bookmarks from "./components/Bookmarks/Bookmarks";
 import Header from "./components/Header/Header";
+import { toast } from "react-toastify";
 
 function App() {
   const [bookmarks, setBookmarks] = useState([]);
   const [readingTime, setReadingTime] = useState(0);
 
   const handleMarkAsRead = (time, id) => {
-    setReadingTime(readingTime + time);
+    // setReadingTime(readingTime + time);
+    setReadingTime((prev) => prev + time);
+
     const remainingBookMarks = bookmarks.filter(
       (bookmark) => bookmark.id !== id
     );
@@ -17,7 +20,10 @@ function App() {
   };
 
   const handleAddToBookMark = (blog) => {
-    setBookmarks([...bookmarks, blog]);
+    const isExist = bookmarks.find((bookmark) => bookmark.id === blog.id);
+    isExist
+      ? toast("Can Not Read an Article Multiple Times")
+      : (setBookmarks([...bookmarks, blog]), toast("Successfully Added"));
   };
 
   return (
