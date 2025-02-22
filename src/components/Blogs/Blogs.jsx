@@ -14,11 +14,11 @@ const Blogs = ({ handleAddToBookMark, handleMarkAsRead }) => {
   }, []);
 
   const handleSearch = (e) => {
-    const targetValue = e.target.value;
+    const target = e.target.value.toLowerCase();
     const blogStore = [];
-    if (targetValue) {
+    if (target) {
       for (const e of tempBlog) {
-        if (e.title.toLowerCase().includes(targetValue)) {
+        if (e.author.toLowerCase().includes(target)) {
           blogStore.push(e);
         }
       }
@@ -28,16 +28,18 @@ const Blogs = ({ handleAddToBookMark, handleMarkAsRead }) => {
     }
   };
 
+ 
+
   return (
     <div className="md:w-2/3">
-      <h2 className="text-4xl">Total Blogs Counted: {blogs.length}</h2>
+      <h2 className="sm:text-4xl text-xl">Total Blogs Counted: {blogs.length}</h2>
       <input
         type="text"
         placeholder="Search Here"
         onChange={(e) => handleSearch(e)}
         className="input input-primary mt-6 py-5"
       />
-      <div className="flex flex-col md:gap-14 m-4">
+      <div className="flex flex-col space-y-4 md:gap-14 m-4 gap-10">
         {blogs.map((blog) => (
           <Blog
             key={blog.id}

@@ -10,26 +10,33 @@ function App() {
   const [readingTime, setReadingTime] = useState(0);
 
   const handleMarkAsRead = (time, id) => {
-    // setReadingTime(readingTime + time);
     setReadingTime((prev) => prev + time);
 
     const remainingBookMarks = bookmarks.filter(
       (bookmark) => bookmark.id !== id
     );
     setBookmarks(remainingBookMarks);
+    toast.success("Thanks For Reading!!!");
   };
 
   const handleAddToBookMark = (blog) => {
-    const isExist = bookmarks.find((bookmark) => bookmark.id === blog.id);
-    isExist
-      ? toast("Can Not Read an Article Multiple Times")
-      : (setBookmarks([...bookmarks, blog]), toast("Successfully Added"));
+    const count = bookmarks.filter(
+      (bookmark) => bookmark.id === blog.id
+    ).length;
+    if (count >= 2) {
+      toast.error("Can Not Read an Article More than 2 Times");
+    } else {
+      setBookmarks([...bookmarks, blog]);
+      toast.success("Successfully BookMarked!");
+    }
   };
 
   return (
     <>
-      <Header></Header>
-      <div className="md:flex gap-4  w-11/12 mx-auto my-4 justify-center">
+      <div className="bg-lime-100">
+        <Header></Header>
+      </div>
+      <div className="flex md:flex-row flex-col-reverse gap-4  w-11/12 mx-auto my-4 justify-center">
         <Blogs
           handleMarkAsRead={handleMarkAsRead}
           handleAddToBookMark={handleAddToBookMark}

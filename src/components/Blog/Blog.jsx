@@ -14,14 +14,14 @@ const Blog = ({ blog, handleAddToBookMark, handleMarkAsRead }) => {
   } = blog;
   return (
     <div className="space-y-3">
-      <div className="w-full mt-8">
+      <div className="w-full">
         <img
           src={cover}
           className="rounded-xl w-full h-full object-cover"
           alt={`Cover Picture of the title ${title}`}
         />
       </div>
-      <div className="flex justify-between">
+      <div className="flex flex-col sm:flex-row gap-4 justify-between">
         <div className="flex gap-4">
           <img src={author_img} alt="" className="w-14" />
           <div>
@@ -35,7 +35,7 @@ const Blog = ({ blog, handleAddToBookMark, handleMarkAsRead }) => {
           </button>
           <button
             onClick={() => handleAddToBookMark(blog)}
-            className="text-2xl bg-gray-400 rounded-full btn p-2 text-red-500"
+            className="text-2xl bg-gray-400 rounded-full btn p-3 text-red-500"
           >
             <FaBookmark />
           </button>
@@ -44,7 +44,7 @@ const Blog = ({ blog, handleAddToBookMark, handleMarkAsRead }) => {
       <h2 className="md:text-4xl text-2xl font-semibold tracking-wide">
         {title}
       </h2>
-      <div className="flex gap-4">
+      <div className="sm:flex gap-4">
         <p className="text-gray-800 text-xl">{hashtags[0]}</p>
         <p className="text-gray-800 text-xl">{hashtags[1]}</p>
         <p className="text-gray-800 text-xl">{hashtags[2]}</p>
