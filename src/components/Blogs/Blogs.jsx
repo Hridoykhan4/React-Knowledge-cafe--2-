@@ -2,10 +2,23 @@ import PropTypes from "prop-types";
 import { useEffect } from "react";
 import { useState } from "react";
 import Blog from "../Blog/Blog";
+import { getStoredBlogs } from "../../utilities/localStorage";
 
-const Blogs = ({ handleAddToBookMark, handleMarkAsRead }) => {
+const Blogs = ({ handleAddToBookMark, handleMarkAsRead, setBookmarks }) => {
   const [blogs, setBlogs] = useState([]);
   const [tempBlog, setTempBlog] = useState([]);
+
+  useEffect(() => {
+    if (blogs.length) {
+      const storedBlog = getStoredBlogs();
+      const saveBottles = [];
+      for (const id of storedBlog) {
+        const blog = blogs.find((blog) => blog.id === id);
+        saveBottles.push(blog);
+      }
+      setBookmarks(saveBottles);
+    }
+  }, [tempBlog]);
 
   useEffect(() => {
     fetch("blogs.json")
@@ -28,11 +41,11 @@ const Blogs = ({ handleAddToBookMark, handleMarkAsRead }) => {
     }
   };
 
- 
-
   return (
     <div className="md:w-2/3">
-      <h2 className="sm:text-4xl text-xl">Total Blogs Counted: {blogs.length}</h2>
+      <h2 className="sm:text-4xl text-xl">
+        Total Blogs Counted: {blogs.length}
+      </h2>
       <input
         type="text"
         placeholder="Search Here"
@@ -56,5 +69,6 @@ const Blogs = ({ handleAddToBookMark, handleMarkAsRead }) => {
 Blogs.propTypes = {
   handleAddToBookMark: PropTypes.func,
   handleMarkAsRead: PropTypes.func,
+  setBookmarks: PropTypes.func,
 };
 export default Blogs;

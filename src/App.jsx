@@ -4,7 +4,7 @@ import Blogs from "./components/Blogs/Blogs";
 import Bookmarks from "./components/Bookmarks/Bookmarks";
 import Header from "./components/Header/Header";
 import { toast } from "react-toastify";
-
+import { addToLS, removeFromLS } from "./utilities/localStorage";
 function App() {
   const [bookmarks, setBookmarks] = useState([]);
   const [readingTime, setReadingTime] = useState(0);
@@ -15,6 +15,7 @@ function App() {
     const remainingBookMarks = bookmarks.filter(
       (bookmark) => bookmark.id !== id
     );
+    removeFromLS(id);
     setBookmarks(remainingBookMarks);
     toast.success("Thanks For Reading!!!");
   };
@@ -28,6 +29,7 @@ function App() {
     } else {
       setBookmarks([...bookmarks, blog]);
       toast.success("Successfully BookMarked!");
+      addToLS(blog.id);
     }
   };
 
@@ -38,6 +40,7 @@ function App() {
       </div>
       <div className="flex md:flex-row flex-col-reverse gap-4  w-11/12 mx-auto my-4 justify-center">
         <Blogs
+          setBookmarks={setBookmarks}
           handleMarkAsRead={handleMarkAsRead}
           handleAddToBookMark={handleAddToBookMark}
         ></Blogs>
