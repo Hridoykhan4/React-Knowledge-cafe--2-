@@ -45,9 +45,11 @@ const Blog = ({ blog, handleAddToBookMark, handleMarkAsRead }) => {
         {title}
       </h2>
       <div className="sm:flex gap-4">
-        <p className="text-gray-800 text-xl">{hashtags[0]}</p>
-        <p className="text-gray-800 text-xl">{hashtags[1]}</p>
-        <p className="text-gray-800 text-xl">{hashtags[2]}</p>
+        {hashtags.map((tag, i) => (
+          <p className="text-gray-800 text-xl" key={i}>
+            {tag}
+          </p>
+        ))}
       </div>
       <button
         className="underline underline-offset-2  text-white btn btn-info font-semibold"

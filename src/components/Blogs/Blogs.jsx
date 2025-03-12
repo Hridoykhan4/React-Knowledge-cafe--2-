@@ -11,19 +11,21 @@ const Blogs = ({ handleAddToBookMark, handleMarkAsRead, setBookmarks }) => {
   useEffect(() => {
     if (blogs.length) {
       const storedBlog = getStoredBlogs();
-      const saveBottles = [];
+      const saveBlog = [];
       for (const id of storedBlog) {
         const blog = blogs.find((blog) => blog.id === id);
-        saveBottles.push(blog);
+        saveBlog.push(blog);
       }
-      setBookmarks(saveBottles);
+      setBookmarks(saveBlog);
     }
   }, [tempBlog]);
 
   useEffect(() => {
     fetch("blogs.json")
       .then((res) => res.json())
-      .then((data) => (setBlogs(data), setTempBlog(data)));
+      .then((data) => {
+        setBlogs(data), setTempBlog(data);
+      });
   }, []);
 
   const handleSearch = (e) => {
@@ -48,7 +50,7 @@ const Blogs = ({ handleAddToBookMark, handleMarkAsRead, setBookmarks }) => {
       </h2>
       <input
         type="text"
-        placeholder="Search Here"
+        placeholder="Search By Blogger's Name"
         onChange={(e) => handleSearch(e)}
         className="input input-primary mt-6 py-5"
       />
